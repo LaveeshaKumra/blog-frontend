@@ -1,0 +1,66 @@
+
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row my-5">
+            <div class="card-img-left d-none d-md-flex">
+               <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">Register</h5>
+              <form class="form-signin">
+                
+                <div class="form-label-group">
+                  <input type="text" name="inputUserame" class="form-control" placeholder="Username" required autofocus (change)="change(uname)" [(ngModel)]="uname">
+                  <label for="inputUserame">Username</label>
+                  <span style="color:red;margin:20px;">{{alert}}</span>
+                </div>
+
+
+                <div class="form-label-group">
+                  <input type="text" name="inputFirstname" class="form-control" placeholder="Firstname" required  [(ngModel)]="fname" >
+                  <label for="inputFirstname">Firstname</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" name="inputLastname" class="form-control" placeholder="Lastname" required [(ngModel)]="lname">
+                  <label for="inputLastname">Lastname</label>
+                </div>
+
+
+                <div class="form-label-group">
+                  <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required [(ngModel)]="email">
+                  <label for="inputEmail">Email address</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" name="inputDesc" class="form-control" placeholder="About You" required [(ngModel)]="description">
+                  <label for="inputDesc">About You</label>
+                </div>
+
+                
+                
+  
+                <div class="form-label-group">
+                  <input type="password" name="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="pass">
+                  <label for="inputPassword">Password</label>
+                </div>
+                
+                <div class="form-label-group">
+                  <input type="password" name="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputConfirmPassword">Confirm password</label>
+                </div>
+  
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="submit()" [disabled]="validate" > Register</button>
+                <a class="d-block text-center mt-2 small" href="login">Sign In</a>
+                <hr class="my-4">
+                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+                <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
