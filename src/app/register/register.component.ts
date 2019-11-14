@@ -35,16 +35,18 @@ export class RegisterComponent implements OnInit {
 
 submit(){
   alert("register successful");
+   //var a:Array;
   const user = {
     active: 1,
     description:this.description,
     email: this.email,
     firstname: this.fname,
+    followers:[],
+    following:[],
     lastname: this.lname,
     password: this.pass,
+    status:"private",
     username: this.uname
-    
-    
     
   };
   console.log(user);

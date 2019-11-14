@@ -36,6 +36,7 @@ url="http://localhost:8090/profile/update";
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.put(this.url,this.result,{headers}).subscribe(data=>{
       console.log(data);
+      sessionStorage.setItem('token',btoa(this.result.username+':' + this.result.password));
       alert("profile updated");
     });
   }

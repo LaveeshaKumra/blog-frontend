@@ -1,16 +1,14 @@
-.bgcolr{
+html{
     background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
 }
 
 .container-fluid {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
-    height: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    
+    padding:0px;
+    margin:0px;
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+    
+   
 }
 .contact-form{
     background: white;

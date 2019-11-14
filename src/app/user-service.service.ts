@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {map} from 'rxjs/operators';
 
@@ -9,7 +9,9 @@ import {map} from 'rxjs/operators';
 })
 export class UserServiceService {
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private http: HttpClient ,private router:Router) {
+    this.isLoggedIn(false);
+   }
   getUsers()
   {
     return this.http.get("http://localhost:8090/api/getUsers");
@@ -22,8 +24,8 @@ export class UserServiceService {
 
   authenticate(username,password)
   {
-    const headers=new HttpHeaders({Auresultthorization: 'Basic ' + btoa(username+':'+password)});
-    return this.http.get ('http://localhost:8090/api/validateUser',{headers}).pipe(
+    const headers=new HttpHeaders({Authorization: 'Basic ' + btoa(username+':'+password)});
+    return this.http.get('http://localhost:8090/api/validateUser',{headers}).pipe(
       map(data => {
           sessionStorage.setItem('token',btoa(username+':' + password));
           return data;
@@ -59,7 +61,6 @@ export class UserServiceService {
 
   getblog(id)
   {
-    console.log(id);
     const token=sessionStorage.getItem("token");
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.get("http://localhost:8090/myblogs/getblogById/"+id,{headers});
@@ -67,7 +68,6 @@ export class UserServiceService {
 
   editBlog(id,result)
   {
-    
     const token=sessionStorage.getItem("token");
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.put("http://localhost:8090/myblogs/update/"+id,result[0],{headers});
@@ -80,9 +80,43 @@ export class UserServiceService {
   }
 
   addblog(blog){
-    console.log(blog);
     const token=sessionStorage.getItem("token");
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.post("http://localhost:8090/myblogs/addblog",blog,{headers});
   }
+
+  getcomments(id){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/comments/getbyblog/"+id,{headers});
+  }
+
+  addcomment(id,data){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.post("http://localhost:8090/comments/addcomment/"+id,data,{headers});
+  }
+
+  deletecomment(id){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/comments/deletecomment/"+id,{headers});
+  }
+
+  getposts(){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/getblogsoffollowing",{headers});
+  }
+
+  unfollow(id){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/unfollow/"+id,{headers});
+  }
+
+  getfollowers(){
+
+  }
+  getfollowing(){}
 }

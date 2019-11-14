@@ -39,6 +39,8 @@ export class ProfileComponent implements OnInit {
       console.log(this.blogs);
     })
   }
-
+ view(id){
+   this.router.navigate(['/blog/',id]);
+ }
   
 }

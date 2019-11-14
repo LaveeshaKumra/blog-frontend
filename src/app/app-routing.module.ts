@@ -12,7 +12,7 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogComponent },
   { path: 'main', component: MainComponent },
   {path:'profile' , component:ProfileComponent},
   {path:'edit' , component:EditProfileComponent},
