@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { Router } from '@angular/router';
-import { Pipe, PipeTransform } from '@angular/core';
+
+
 
 
 @Component({
@@ -11,7 +12,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MainComponent implements OnInit {
  date=new Date();
- title;body;result;posts;status="private";
+ title;body;result;posts;status="private";search;
+
+
   constructor(private blogservice:UserServiceService,private router:Router) { }
 
   ngOnInit() {
@@ -24,6 +27,8 @@ export class MainComponent implements OnInit {
       this.posts=res;
       console.log(this.posts);
     });
+
+    
   }
 
   post(){
@@ -36,7 +41,6 @@ export class MainComponent implements OnInit {
     status:this.status
 
   };
-  console.log(blog);
   this.blogservice.addblog(blog).subscribe(res=>{
     console.log('added to database');
     console.log(res);
@@ -59,4 +63,33 @@ export class MainComponent implements OnInit {
     });
   }
 
-}
+  searchUser(key){
+    if(key){
+    this.blogservice.search(key).subscribe(res=>{
+      this.search=res;
+      console.log(res);
+    })
+  }
+  else{
+    this.search=[];
+  }
+  }
+
+  searchblog(key){
+    if(key){
+    this.blogservice.searchblog(key).subscribe(res=>{
+      this.posts=res;
+      console.log(res);
+    })
+  }
+  else{
+    this.ngOnInit();
+  }
+  }
+
+  userprofile(id){
+    this.router.navigate(['people/',id]);
+  }
+  }
+  
+

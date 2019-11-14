@@ -8,6 +8,7 @@ import { BlogComponent } from './blog/blog.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
+import { PeopleComponent } from './people/people.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   {path:'profile' , component:ProfileComponent},
   {path:'edit' , component:EditProfileComponent},
-  {path:'profile/editBlog/:id',component:EditBlogComponent}
+  {path:'profile/editBlog/:id',component:EditBlogComponent},
+  {path:'people/:id',component:PeopleComponent}
 ];
 
 @NgModule({

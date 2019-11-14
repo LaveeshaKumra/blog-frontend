@@ -12,7 +12,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { OrderByPipe } from './order-by.pipe';
-// import { OrderModule } from 'ngx-order-pipe';
+import { PeopleComponent } from './people/people.component'; 
+
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { OrderByPipe } from './order-by.pipe';
     ProfileComponent,
     EditProfileComponent,
     EditBlogComponent,
-    OrderByPipe
-    //OrderModule
+    OrderByPipe,
+    PeopleComponent
+    
     
   ],
   imports: [
@@ -33,8 +35,11 @@ import { OrderByPipe } from './order-by.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
+
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })

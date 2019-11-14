@@ -110,10 +110,15 @@ export class UserServiceService {
   }
 
   unfollow(id){
-    console.log(id);
     const token=sessionStorage.getItem("token");
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.get("http://localhost:8090/profile/unfollow/"+id,{headers});
+  }
+
+  follow(id){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/follow/"+id,{headers});
   }
   
   remove(id){
@@ -133,4 +138,23 @@ export class UserServiceService {
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.get("http://localhost:8090/profile/getfollowing",{headers});
   }
+
+  search(key){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/search/"+key,{headers});
+  }
+
+  searchblog(key){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/myblogs/search/"+key,{headers});
+  }
+
+  getprofile(key){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/get/"+key,{headers});
+  }
+
 }

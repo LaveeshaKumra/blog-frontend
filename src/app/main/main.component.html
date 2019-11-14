@@ -36,8 +36,7 @@
         
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" name="search" [(ngModel)]="value" type="text" placeholder="Search" (keyup)="searchUser(value)">
       </form>
     </div>
   </nav>
@@ -108,7 +107,9 @@
         </div>
         <!-- Post /////-->
 
-        <!----->
+        <div class="form-group">
+            <input type="text" [(ngModel)]="blogSearch" class="blogSearch" placeholder="Search blog" (keyup)="searchblog(blogSearch)">
+        </div> 
         <div class="card gedf-card" *ngFor="let p of posts | orderBy:'-createDate' ">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
@@ -159,25 +160,15 @@
     </div>
     <div class="col-md-3">
         <div class="card gedf-card">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
+            <div class="card-header">
+                Search Suggestions
+              </div>
+              <ul class="list-group list-group-flush" *ngFor="let s of search" (click)="userprofile(s.userid)">
+                <li class="list-group-item"> @ {{s.username}}<br/><h6 class="text-muted">{{s.firstname}} {{s.lastname}}</h6></li>
+                
+              </ul>
         </div>
-        <div class="card gedf-card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
+       
     </div>
 </div>
 </div>
