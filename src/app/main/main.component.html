@@ -108,8 +108,8 @@
         </div>
         <!-- Post /////-->
 
-        <!--- \\\\\\\Post-->
-        <div class="card gedf-card" *ngFor="let p of posts">
+        <!----->
+        <div class="card gedf-card" *ngFor="let p of posts | orderBy:'-createDate' ">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex justify-content-between align-items-center">

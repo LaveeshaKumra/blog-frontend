@@ -17,17 +17,17 @@
 
                 <div class="card border-dark mb-3" style="max-width: 18rem;">
                     <div class="card-header"><h5>Followers</h5></div>
-                    <div class="card-body text-dark">
-                      <span class="card-title mr-2">Dark card title</span>
-                      <button class="btn btn-outline-dark "> Remove</button>
+                    <div class="card-body text-dark" *ngFor="let follow of followers">
+                      <span class="card-title mr-2">@{{follow.username}}</span>
+                      <button class="btn btn-outline-dark "  style="float:right"(click)="remove(follow.userid)"> Remove</button>
                     </div>
                   </div>
 
                   <div class="card border-dark mb-3" style="max-width: 18rem;">
                     <div class="card-header"><h5>Following</h5></div>
-                    <div class="card-body text-dark">
-                      <span class="card-title mr-2">Dark card title</span>
-                      <button class="btn btn-outline-dark "> Unfollow</button>
+                    <div class="card-body text-dark" *ngFor="let follow of following">
+                      <span class="card-title mr-2">@{{follow.username}}</span>
+                      <button class="btn btn-outline-dark "  style="float:right"  (click)="unfollow(follow.userid)"> Unfollow</button>
                     </div>
                   </div>
             </div>

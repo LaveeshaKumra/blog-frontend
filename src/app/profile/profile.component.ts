@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   result;blogs;
 
   constructor(private router:Router,private httpservice:UserServiceService,private http:HttpClient) { }
-  uname;lname;fname;email;pass;
+  uname;lname;fname;email;pass;followers;following;
   ngOnInit() {
     this.profile();
   }
@@ -26,6 +26,16 @@ export class ProfileComponent implements OnInit {
     this.httpservice.getmyblogs().subscribe(res=>{
       this.blogs=res;
       console.log(this.blogs);
+    });
+
+    this.httpservice.getfollowers().subscribe(res=>{
+      this.followers=res;
+      console.log(this.followers);
+    });
+
+    this.httpservice.getfollowing().subscribe(res=>{
+      this.following=res;
+      console.log(this.following);
     });
   }
   editProfile(){
@@ -42,5 +52,16 @@ export class ProfileComponent implements OnInit {
  view(id){
    this.router.navigate(['/blog/',id]);
  }
-  
+
+ unfollow(id){
+  this.httpservice.unfollow(id).subscribe(res=>{
+    this.router.navigate(['profile']);
+  });
+}
+
+remove(id){
+  this.httpservice.remove(id).subscribe(res=>{
+    this.router.navigate(['profile']);
+  });
+}
 }

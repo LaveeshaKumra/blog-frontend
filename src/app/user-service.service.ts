@@ -110,13 +110,27 @@ export class UserServiceService {
   }
 
   unfollow(id){
+    console.log(id);
     const token=sessionStorage.getItem("token");
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.get("http://localhost:8090/profile/unfollow/"+id,{headers});
   }
+  
+  remove(id){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/deletefollowing/"+id,{headers});
+  }
 
   getfollowers(){
-
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/getfollowers",{headers});
   }
-  getfollowing(){}
+
+  getfollowing(){
+    const token=sessionStorage.getItem("token");
+    const headers=new HttpHeaders({Authorization:'Basic '+token});
+    return this.http.get("http://localhost:8090/profile/getfollowing",{headers});
+  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { Router } from '@angular/router';
+import { Pipe, PipeTransform } from '@angular/core';
+
 
 @Component({
   selector: 'app-main',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit {
  date=new Date();
- title;body;result;posts;status;
+ title;body;result;posts;status="private";
   constructor(private blogservice:UserServiceService,private router:Router) { }
 
   ngOnInit() {
@@ -25,6 +27,7 @@ export class MainComponent implements OnInit {
   }
 
   post(){
+    console.log(this.status);
   alert("posted");
   const blog = {
     body:this.body,

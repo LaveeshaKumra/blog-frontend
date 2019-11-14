@@ -7,10 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './main/main.component';
 import { BlogComponent } from './blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
+import { OrderByPipe } from './order-by.pipe';
+// import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,17 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
     BlogComponent,
     ProfileComponent,
     EditProfileComponent,
-    EditBlogComponent
+    EditBlogComponent,
+    OrderByPipe
+    //OrderModule
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
