@@ -46,7 +46,6 @@ export class ProfileComponent implements OnInit {
   delete(id){
     this.httpservice.deleteblog(id).subscribe(res=>{
       this.blogs=res;
-      console.log(this.blogs);
     })
   }
  view(id){
@@ -55,13 +54,15 @@ export class ProfileComponent implements OnInit {
 
  unfollow(id){
   this.httpservice.unfollow(id).subscribe(res=>{
-    this.router.navigate(['profile']);
+    alert("user unfollowed");
+    this.ngOnInit();
   });
 }
 
 remove(id){
   this.httpservice.remove(id).subscribe(res=>{
-    this.router.navigate(['profile']);
+    alert("user removed");
+    this.ngOnInit();
   });
 }
 }

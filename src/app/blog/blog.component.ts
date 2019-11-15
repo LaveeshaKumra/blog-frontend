@@ -8,7 +8,9 @@ import { UserServiceService } from '../user-service.service';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-id;blog;comment;data;
+id;blog;comment;
+date=new Date();
+body;
   constructor(private route :ActivatedRoute,private httpservice:UserServiceService) { }
 
   ngOnInit(){
@@ -30,9 +32,16 @@ this.httpservice.getcomments(this.id).subscribe(res=>{
 
 
 addcomment(id){
-this.httpservice.addcomment(this.id,this.data).subscribe(res=>{
+  console.log(id);
+  const data = {
+    body:this.body,
+    createDate: this.date
+  };
+  console.log(data);
+this.httpservice.addcomment(this.id,data).subscribe(res=>{
   this.comment=res;
   console.log(this.comment);
+  this.ngOnInit();
 });
 }
 

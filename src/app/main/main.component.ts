@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   constructor(private blogservice:UserServiceService,private router:Router) { }
 
   ngOnInit() {
-    
+    console.log(sessionStorage.getItem('auth'))
   if(sessionStorage.getItem('auth')=="false"){
     this.router.navigate(['login']);
   }

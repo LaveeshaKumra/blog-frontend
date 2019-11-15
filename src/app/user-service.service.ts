@@ -91,6 +91,7 @@ export class UserServiceService {
   }
 
   addcomment(id,data){
+    console.log(data);
     const token=sessionStorage.getItem("token");
     const headers=new HttpHeaders({Authorization:'Basic '+token});
     return this.http.post("http://localhost:8090/comments/addcomment/"+id,data,{headers});
