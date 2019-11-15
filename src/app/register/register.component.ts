@@ -55,7 +55,8 @@ export class RegisterComponent implements OnInit {
     lastname: this.lname,
     password: this.pass,
     status:"private",
-    username: this.uname
+    username: this.uname,
+    role:"user"
     
   };
   console.log(user);

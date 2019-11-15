@@ -18,6 +18,11 @@ export class MainComponent implements OnInit {
   constructor(private blogservice:UserServiceService,private router:Router) { }
 
   ngOnInit() {
+    
+  if(sessionStorage.getItem('auth')=="false"){
+    this.router.navigate(['login']);
+  }
+  else{
     this.blogservice.getinfo().subscribe(res=>{
       this.result=res;
       console.log(this.result);
@@ -27,9 +32,9 @@ export class MainComponent implements OnInit {
       this.posts=res;
       console.log(this.posts);
     });
-
-    
   }
+  }
+  
 
   post(){
     console.log(this.status);
@@ -59,7 +64,7 @@ export class MainComponent implements OnInit {
 
   unfollow(id){
     this.blogservice.unfollow(id).subscribe(res=>{
-      this.router.navigate(['main']);
+      this.router.navigate(['']);
     });
   }
 

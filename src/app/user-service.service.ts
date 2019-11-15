@@ -10,7 +10,6 @@ import {map} from 'rxjs/operators';
 export class UserServiceService {
 
   constructor(private http: HttpClient ,private router:Router) {
-    this.isLoggedIn(false);
    }
   getUsers()
   {

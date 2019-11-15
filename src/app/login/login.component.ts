@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   username;password;
   constructor(private userservice:UserServiceService,private router:Router) { }
-
+  data;
     login(){
       if(this.username && this.password){
     
@@ -22,7 +22,17 @@ export class LoginComponent implements OnInit {
           data=>
           {
             this.userservice.isLoggedIn(true);
-            this.router.navigate(['/main']);
+            this.userservice.getinfo().subscribe(res=>{
+              this.data=res;
+              if(this.data.role=="moderator"){
+                this.router.navigate(['admin']);
+              }
+              else{
+                this.router.navigate(['']);
+              }
+            })
+            
+            
           }
         );
          }

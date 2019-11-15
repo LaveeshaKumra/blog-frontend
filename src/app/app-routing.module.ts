@@ -9,16 +9,19 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { PeopleComponent } from './people/people.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'blog/:id', component: BlogComponent },
-  { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent },
   {path:'profile' , component:ProfileComponent},
   {path:'edit' , component:EditProfileComponent},
   {path:'profile/editBlog/:id',component:EditBlogComponent},
-  {path:'people/:id',component:PeopleComponent}
+  {path:'people/:id',component:PeopleComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'*',component:MainComponent}
 ];
 
 @NgModule({
