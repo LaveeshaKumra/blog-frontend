@@ -13,7 +13,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { OrderByPipe } from './order-by.pipe';
 import { PeopleComponent } from './people/people.component';
-import { AdminComponent } from './admin/admin.component'; 
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({

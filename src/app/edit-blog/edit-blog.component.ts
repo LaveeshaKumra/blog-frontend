@@ -29,7 +29,7 @@ id;blogs;title;body;
     this.httpservice.editBlog(this.id,this.blogs).subscribe(res=>{
       this.blogs=res;
       console.log(this.blogs);
-      alert("profile updated");
+      alert("blog updated");
 });
   }
 
